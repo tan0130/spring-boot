@@ -1,0 +1,18 @@
+server:
+  port: 8081
+  context-path: /demo
+# name: demo
+# age: 18
+# context: "name: ${name}, age: ${age}"
+spring:
+  profiles:
+    active: nodev
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver # 驱动名称
+    url: jdbc:mysql://localhost:3306/spring?characterEncoding=UTF-8 # 地址
+    username: root # 用户名
+    password: 123456 # 密码
+  jpa:
+    hibernate:
+       ddl-auto: update # 第一次会创建新表，之后再次启动有数据不会删除
+    show-sql: true # 显示sql语句
