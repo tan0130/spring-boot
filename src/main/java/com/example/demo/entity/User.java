@@ -1,8 +1,8 @@
-package com.example.demo;
+package com.example.demo.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import org.hibernate.annotations.Generated;
+
+import javax.persistence.*;
 
 /**
  * create by tan on 2018/6/12
@@ -12,6 +12,7 @@ import javax.persistence.Table;
 @Table(name="user")
 public class User {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id; // 用户编号
     private String name; // 用户姓名
     private String password; // 用户密码

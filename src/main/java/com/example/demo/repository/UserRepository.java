@@ -1,13 +1,12 @@
-package com.example.demo;
+package com.example.demo.repository;
 
-import org.springframework.beans.factory.annotation.Qualifier;
+import com.example.demo.entity.User;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
-
-import javax.persistence.Table;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * create by tan on 2018/6/12
@@ -26,6 +25,8 @@ public interface UserRepository extends CrudRepository<User, Integer> {
      * 添加用户信息
      * @param u 接收用户输入信息
      * */
+    @Transactional
+    @Modifying
     public User save(User u);
 
     /**
@@ -35,4 +36,15 @@ public interface UserRepository extends CrudRepository<User, Integer> {
      * */
     @Query("select t from User t where t.name=:name")
     public User findUserByName(@Param("name") String name);
+
+    /**
+     * 根据id删除用户信息
+     * @param id 接收用户编号
+     * */
+    @Transactional
+    @Modifying
+    @Query("delete from User u where u.id=:id")
+    public void deleteUserById(@Param("id") int id);
+
+
 }
