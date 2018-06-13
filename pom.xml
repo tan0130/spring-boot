@@ -36,6 +36,12 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- 页面跳转模板 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+
         <!-- jdbc数据库连接类 -->
         <dependency>
             <groupId>mysql</groupId>

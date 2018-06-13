@@ -2,11 +2,10 @@ package com.example.demo.controller;
 
 import com.example.demo.entity.User;
 import com.example.demo.service.UserService;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 /**
  * create by tan on 2018/6/12
@@ -74,8 +73,9 @@ public class UserController {
     /**
      * 测试页面跳转
      * */
-    @RequestMapping(value = "/toPage")
-    public String toPage() {
-        return "html/hello";
+    @RequestMapping(value = "/toPage", method = RequestMethod.GET)
+    public ModelAndView toPage() {
+        ModelAndView mv = new ModelAndView("html/hello");
+        return mv;
     }
 }
